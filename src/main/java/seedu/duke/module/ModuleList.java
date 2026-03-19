@@ -117,17 +117,26 @@ public class ModuleList {
     }
 
     public void addModule(Module newModule) throws DuplicateException {
+        assert newModule != null : "Module to add should not be null";
+        assert newModule.getModuleCode() != null : "Module code should not be null";
+        assert !newModule.getModuleCode().trim().isEmpty() : "Module code should not be empty";
+
+        logger.log(Level.FINE, "Attempting to add module: {0}", newModule.getModuleCode());
+
         if (!isRecognisedModule(newModule.getModuleCode())) {
+            logger.log(Level.FINE, "Unrecognised module: {0}", newModule.getModuleCode());
             throw new IllegalArgumentException(newModule.getModuleCode()
                     + " is not a recognised module in the required list.");
         }
         for (Module module : completedModules) {
             if (module.getModuleCode().equalsIgnoreCase(newModule.getModuleCode())) {
+                logger.log(Level.FINE, "Duplicate module: {0}", newModule.getModuleCode());
                 throw new DuplicateException(newModule.getModuleCode());
             }
         }
         newModule.markCompleted();
         completedModules.add(newModule);
+        logger.log(Level.FINE, "Module added successfully: {0}", newModule.getModuleCode());
     }
 
     public boolean removeModule(String moduleCode) {
