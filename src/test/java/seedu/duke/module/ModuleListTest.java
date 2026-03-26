@@ -3,7 +3,6 @@ package seedu.duke.module;
 import org.junit.jupiter.api.Test;
 import seedu.duke.exception.DuplicateException;
 
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
