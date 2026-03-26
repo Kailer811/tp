@@ -8,6 +8,18 @@
 
 {Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
+### Storage component
+API: Storage.java
+
+{insert UML diagram here}
+
+The storage component,
+
+can save current completed mods as well as planned mods in a text file
+
+It can also create more then one list for different users
+
+different user can also have different iteration of their plan
 
 ## Product scope
 ### Target user profile
@@ -16,7 +28,9 @@
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+PathLock provides a lightweight, offline CLI tool for CEG students to organise complex multi-year university pathways,
+tracking completed modules, monitoring MC progress, and managing graduation requirements without needing a
+database or internet connection.
 
 ## User Stories
 
@@ -27,7 +41,9 @@
 
 ## Non-Functional Requirements
 
-{Give non-functional requirements}
+1. Should work on any mainstream OS (Windows, macOS, Linux) with Java 17 or above installed.
+2. All data is stored locally and the application should work fully without internet connectivity.
+3. The saved plan file should remain human-readable and editable with a standard text editor.
 
 ## Glossary
 

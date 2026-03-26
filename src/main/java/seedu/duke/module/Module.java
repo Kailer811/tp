@@ -10,6 +10,7 @@ public class Module {
     private final List<String> prerequisites;
     private final List<String> preclusions;
     private ModuleStatus status;
+    private String semester;
 
     public Module(String code, int mc, String type, String orGroup,
                   List<String> prerequisites, List<String> preclusions) {
@@ -20,6 +21,7 @@ public class Module {
         this.prerequisites = prerequisites;
         this.preclusions = preclusions;
         this.status = ModuleStatus.INCOMPLETE;
+        this.semester = "";
     }
 
     public Module(String code, int mc) {
@@ -48,6 +50,14 @@ public class Module {
 
     public List<String> getPreclusions() {
         return preclusions;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public ModuleStatus getStatus() {
