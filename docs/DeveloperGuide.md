@@ -23,8 +23,12 @@ different user can also have different iteration of their plan
 
 ## Product scope
 ### Target user profile
+- Y1-Y4 Computer Engineering Undergraduate Students (JC path)
+- did not follow the recommended TimeTable
+- has a need to manage complex multi-year university pathways
+- can type fast
+- is reasonably comfortable using CLI apps
 
-{Describe the target user profile}
 
 ### Value proposition
 
