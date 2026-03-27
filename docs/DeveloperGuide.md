@@ -34,10 +34,14 @@ database or internet connection.
 
 ## User Stories
 
-|Version| As a ... | I want to ... | So that I can ...|
-|--------|----------|---------------|------------------|
-|v1.0|new user|see usage instructions|refer to them when I forget how to use the application|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|Version| As a ... | I want to ...                                           | So that I can ...                                           |
+|--------|----------|---------------------------------------------------------|-------------------------------------------------------------|
+|v1.0|New User| see usage instructions                                  | refer to them when I forget how to use the application      |
+|v1.0|User| see my output                                           | know what I entered                                         |
+|v2.0|User| have a planner mode                                     | plan which mods I want to take when                         |
+|v2.0|User| add mods to the planner                                 | -                                                           |
+|v2.0|User| be able to edit the mods I have indicated in my planenr | correct any mistakes I made                                 |
+|v2.0|User| have a visual indication of my planner                  | so that I can see my whole planned timetable over my course |
 
 ## Non-Functional Requirements
 
