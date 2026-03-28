@@ -53,6 +53,7 @@ public class Parser {
 
         if (input.equals("planner")) {
             return new ListPlannerCommand();
+        }
         if (input.equals("help")) {
             return new HelpCommand();
         }
