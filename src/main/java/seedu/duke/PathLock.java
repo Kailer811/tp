@@ -14,8 +14,9 @@ import seedu.duke.storage.ProfileStorage;
 import seedu.duke.planner.PlannerList;
 import seedu.duke.ui.UI;
 import seedu.duke.storage.Storage;
-import seedu.duke.exception.DuplicateException;
 
+import seedu.duke.exception.DuplicateException;
+import java.util.NoSuchElementException;
 
 public class PathLock {
     /**
@@ -104,6 +105,9 @@ public class PathLock {
         }
 
         System.out.print("Enter your name: ");
+        if (!scanner.hasNextLine()) {
+            throw new NoSuchElementException("No input provided for name.");
+        }
         String name = scanner.nextLine().trim();
 
         while (name.isEmpty()) {
@@ -133,8 +137,12 @@ public class PathLock {
     private static double promptForGpa(Scanner scanner) {
         while (true) {
             System.out.print("Enter your GPA (2.0 to 5.0): ");
-            String input = scanner.nextLine().trim();
 
+            if (!scanner.hasNextLine()) {  // ← ADD THIS
+                throw new NoSuchElementException("No input provided for GPA.");
+            }
+
+            String input = scanner.nextLine().trim();
             try {
                 double gpa = Double.parseDouble(input);
                 if (gpa < 2.0 || gpa > 5.0) {
