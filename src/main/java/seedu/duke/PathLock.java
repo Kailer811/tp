@@ -14,6 +14,7 @@ import seedu.duke.ui.UI;
 import seedu.duke.storage.Storage;
 import seedu.duke.exception.DuplicateException;
 
+
 public class PathLock {
     /**
      * Main entry-point for the PathLock application.
@@ -21,39 +22,19 @@ public class PathLock {
     @SuppressWarnings("checkstyle:RightCurly")
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Storage storage = new Storage();
-        ModuleList modules = new ModuleList();
-        PlannerList planner = new PlannerList();
-        AppState appState = new AppState(modules, planner);
-
-        try {
-            List<Module> savedModules = storage.load();
-            for (Module saved : savedModules) {
-                try {
-                    modules.addModule(saved.getModuleCode());
-                } catch (DuplicateException | IllegalArgumentException e) {
-                    // skip invalid or duplicate entries from save file
-                }
-            }
-        } catch (IOException e) {
-            // no saved data, start fresh
-        }
+        ModuleList modules = getModuleList();
+        PlannerList course = new PlannerList();
+        AppState appState = new AppState(modules,course);
 
         UI.opening();
         while (true) {
             UI.userPrompt();
-
-            if (!scanner.hasNextLine()){
-                break;
-            }
 
             String input = scanner.nextLine().trim();
 
             if (input.equalsIgnoreCase("exit")) {
                 UI.closing();
                 break;
-            } else if (input.equalsIgnoreCase("help")) {
-                UI.help();
             } else {
                 try {
                     Command command = Parser.parseCommand(input);
@@ -72,5 +53,30 @@ public class PathLock {
             }
         }
         scanner.close();
+    }
+
+    private static ModuleList getModuleList() {
+        Storage storage = new Storage();
+        ModuleList modules = new ModuleList();
+
+        try {
+            List<Module> savedModules = storage.load();
+            for (Module saved : savedModules) {
+                try {
+                    String code = saved.getModuleCode();
+                    int mc = saved.getModularCredits();
+                    if (modules.isRecognisedModule(code)){
+                        modules.addModule(code);
+                    } else {
+                        modules.addExternalModule(code, mc);
+                    }
+                } catch (DuplicateException | IllegalArgumentException e) {
+                    // skip invalid or duplicate entries from save file
+                }
+            }
+        } catch (IOException e) {
+            // no saved data, start fresh
+        }
+        return modules;
     }
 }
