@@ -11,15 +11,8 @@ WELCOME TO
 
 A CEG mod planner
 =======================================================================
-Welcome back, TestUser!
-Saved GPA: 3.50
-Recommended maximum semester workload: 26 MCs
-=======================================================================
-Pathlock awaits: =======================================================================
-Unknown command, please refer to 'help' for list of commands
-=======================================================================
-Pathlock awaits: =======================================================================
-Unknown command, please refer to 'help' for list of commands
+Enter your name: Enter your GPA (2.0 to 5.0): Profile saved for TestUser.
+Recommended max semester workload: 26 MCs
 =======================================================================
 Pathlock awaits: =======================================================================
 Pathlock Closing
