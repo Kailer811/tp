@@ -3,10 +3,13 @@ package seedu.duke;
 import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
+
+import seedu.duke.appState.AppState;
 import seedu.duke.command.Command;
 import seedu.duke.module.Module;
 import seedu.duke.module.ModuleList;
 import seedu.duke.parser.Parser;
+import seedu.duke.planner.PlannerList;
 import seedu.duke.ui.UI;
 import seedu.duke.storage.Storage;
 import seedu.duke.exception.DuplicateException;
@@ -20,6 +23,8 @@ public class PathLock {
         Scanner scanner = new Scanner(System.in);
         Storage storage = new Storage();
         ModuleList modules = new ModuleList();
+        PlannerList planner = new PlannerList();
+        AppState appState = new AppState(modules, planner);
 
         try {
             List<Module> savedModules = storage.load();
@@ -58,7 +63,7 @@ public class PathLock {
                         continue;
                     }
 
-                    String result = command.execute(modules);
+                    String result = command.execute(appState);
                     System.out.println(result);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());

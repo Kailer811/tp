@@ -1,5 +1,6 @@
 package seedu.duke.command;
 
+import seedu.duke.appState.AppState;
 import seedu.duke.module.ModuleList;
 import seedu.duke.exception.DuplicateException;
 import seedu.duke.storage.Storage;
@@ -17,7 +18,8 @@ public class DoneCommand extends Command {
     }
 
     @Override
-    public String execute(ModuleList modules) {
+    public String execute(AppState appState) {
+        ModuleList modules = appState.getModule();
         assert modules != null : "ModuleList should not be null";
         assert moduleCode != null && !moduleCode.isEmpty() : "ModuleCode should not be null";
 

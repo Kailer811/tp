@@ -1,6 +1,8 @@
 package seedu.duke.command;
 
+import seedu.duke.appState.AppState;
 import seedu.duke.module.ModuleList;
+import seedu.duke.planner.PlannerList;
 
 public class AddToPlannerCommand extends Command {
     private final String moduleCode;
@@ -11,8 +13,7 @@ public class AddToPlannerCommand extends Command {
         this.semester = semester;
     }
 
-    @Override
-    public String execute(ModuleList modules) {
-        return "Planner feature coming soon";
+    public String execute(AppState appState) {
+        return ("work in progress, planner coming soon !!");
     }
 }
